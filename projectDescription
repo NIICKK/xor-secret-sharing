@@ -1,0 +1,50 @@
+Assignment 4 Description:
+
+
+
+Main Idea
+
+In cryptography, secret sharing refers to any method for distributing a secret among a group of participants, each of which allocates a share of the secret. The secret can only be reconstructed when the shares are combined together; individual shares are of no used on their own. In this assignment, you will use three different approaches mentioned in the Deceptive Secret Sharing Paper (Kong, Blough) to generate XOR-based secret shares. 
+
+Among all the m secrets, only one of them are the real one, and other m-1 would be fake secrets. You need to figure out a way to generate all these fake secrets to make them looks like real sentences as much as possible. All the fake secrets and real secret needs to have same amount of characters. 
+
+Language Choice
+Python (recommend)
+Java
+PHP
+C++ …
+
+Part 1
+
+Encode each of the secret separately by implementing the NAIVE approach. For each of the secret, you will need to generate n shares. None of these shares will be reused.
+Reconstruct the secrets by XOR the shares in each secret and output them into one text files.
+
+Part 2  
+
+Encode each of the secret separately by implementing the SIMPLE approach, among all of the n shares for each of the secrets, n-1 of them need to be reused for other secrets. The reused shares needs to be randomly picked for each secret. Reconstruct the secrets by XOR the shares in each secret and output them into one text file.
+
+Part 3
+
+Encode each of the secret separately by implementing the CYCLIC approach. Among all the n shares in a secret, r shares will be randomly picked for reuse. The last secret will have some of its share identical to the first share. Like it did in Part 1 and Part 2, reconstruct the secrets by XOR the shares in each secret and output them into different text files with the file name in one text file.
+
+Output format:
+
+Print out each of the value in your share in one line and separate them by a tab. Different share should be print in different lines.
+Print out the secret string after the last share and then print out the storage it used in the last line of the file. An example of output file is provided in the resource section.
+
+Other Notes:
+
+To help you get start with this assignment, a template is provided to you. The link of the template can be found in the resource section.
+
+To run you script, use the the command:
+python ./xor_secret_sharing.py --secret [your secret string] --n [# of share] --m [# of secret] --[secret approach] --output [output file name]
+
+Here is an example:
+python ./xor_secret_sharing.py csecret "hello world" --n 20 --m 5 --NAIVE --output ./NAIVE.txt
+
+Resource:
+
+Template: https://raw.githubusercontent.com/kylekizirian/xor-secret-sharing/master/template.py
+Output File: https://raw.githubusercontent.com/kylekizirian/xor-secret-sharing/master/simple_output.txt
+How to Share a Secret Paper: http://blough.ece.gatech.edu/6102/papers/shamir.pdf 
+Deceptive Secret Sharing Paper: http://blough.ece.gatech.edu/6102/papers/dsn18.pdf
